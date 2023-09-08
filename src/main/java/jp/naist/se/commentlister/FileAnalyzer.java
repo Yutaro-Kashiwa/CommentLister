@@ -78,5 +78,10 @@ public class FileAnalyzer {
 		gen.writeEndObject();
 		
 	}
+	public static CommentReader extractComments(Path path) throws IOException {
+		byte[] content = Files.readAllBytes(path);
+		FileType t = FileType.getFileType(path.getFileName().toFile().getName());
+		return FileType.createCommentReader(t, content);
+	}
 
 }

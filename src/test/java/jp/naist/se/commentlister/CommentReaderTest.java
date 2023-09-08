@@ -2,10 +2,15 @@ package jp.naist.se.commentlister;
 
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import jp.naist.se.commentlister.reader.CommentReader;
 import jp.naist.se.commentlister.reader.FileType;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
 
 public class CommentReaderTest {
 
@@ -55,5 +60,17 @@ public class CommentReaderTest {
 		Assert.assertEquals(2, countComments(FileType.RUBY, "=begin\n 1st comment \n=end\n=begin\n 2nd comment \n=end"));
 		Assert.assertEquals(1, countComments(FileType.RUBY, "if x then \n puts \"a\" # a \n end"));
 		Assert.assertEquals(1, countComments(FileType.RUBY, "if x then \n  puts \"a\" # 1st \n  puts \"b\" # 2nd \n end"));
+	}
+
+	@Test@Ignore
+	public void testJavaFile() throws IOException {
+		File f = new File("sample/GitFileCount.java");
+		Path p = f.toPath();
+		System.out.println(p.toString());
+		CommentReader cr = FileAnalyzer.extractComments(p);
+		while(cr.next()){
+			System.out.println(cr.getLine());
+			System.out.println(cr.getText());
+		}
 	}
 }
