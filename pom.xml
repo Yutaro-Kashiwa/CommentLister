@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jp.naist.se</groupId>
   <artifactId>CommentLister_Kashiwa</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
@@ -108,7 +108,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub OWNER Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/posl/Kashiwa_TestEffortEstimation</url>
+			<url>https://maven.pkg.github.com/Yutaro-Kashiwa/CommentLister</url>
 		</repository>
 	</distributionManagement>
 </project>
